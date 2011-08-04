@@ -41,6 +41,12 @@ var deps = {
 		deps: ['TileLayer']
 	},
 	
+	TileLayerAGSDynamic: {
+		src: ['layer/tile/TileLayer.AGSDynamic.js'],
+		desc: 'ArcGIS Server Dynamic tile layer.',
+		deps: ['TileLayer']
+	},
+	
 	TileLayerCanvas: {
 		src: ['layer/tile/TileLayer.Canvas.js'],
 		desc: 'Tile layer made from canvases (for custom drawing purposes).',

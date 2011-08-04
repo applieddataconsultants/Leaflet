@@ -1,5 +1,5 @@
 @echo off
-java -jar ../lib/closure-compiler/compiler.jar ^
+"C:\Program Files (x86)\Java\jre6\bin\java.exe" -jar ../lib/closure-compiler/compiler.jar ^
 --js ../src/Leaflet.js ^
 --js ../src/core/Util.js ^
 --js ../src/core/Class.js ^
@@ -31,8 +31,10 @@ java -jar ../lib/closure-compiler/compiler.jar ^
 --js ../src/layer/FeatureGroup.js ^
 --js ../src/layer/tile/TileLayer.js ^
 --js ../src/layer/tile/TileLayer.WMS.js ^
+--js ../src/layer/tile/TileLayer.AGSDynamic.js ^
 --js ../src/layer/tile/TileLayer.Canvas.js ^
 --js ../src/layer/ImageOverlay.js ^
+--js ../src/layer/AgsDynamicLayer.js ^
 --js ../src/layer/Popup.js ^
 --js ../src/layer/marker/Icon.js ^
 --js ../src/layer/marker/Marker.js ^
