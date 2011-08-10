@@ -99,7 +99,8 @@
         //construct the export image url
         var bnds = this._map.getBounds();
         var sz = this._map.getSize();
-        var bbox = 'bbox=' + bnds.getSouthEast().lng + ',' + bnds.getSouthEast().lat + ',' + bnds.getNorthWest().lng + ',' + bnds.getNorthWest().lat + '&bboxsr=4326';
+        //bboxsr & imagesr params need to be specified like so to avoid alignment problems on some map services - not sure why
+		var bbox = 'bbox=' + bnds.getSouthEast().lng + ',' + bnds.getSouthEast().lat + ',' + bnds.getNorthWest().lng + ',' + bnds.getNorthWest().lat + '&bboxsr=4326&imageSR=3857';
         var size = '&size=' + sz.x + ',' + sz.y;
         var format = '&format=' + this.options.format;
         var transparent = '&transparent=' + this.options.transparent;
