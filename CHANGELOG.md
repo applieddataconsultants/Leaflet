@@ -133,4 +133,3 @@ Leaflet Changelog
 
 ## 0.1 (2011-05-13)
 
- * Initial Leaflet release.
