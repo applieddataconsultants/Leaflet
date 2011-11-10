@@ -35,6 +35,8 @@
 --js ../src/layer/tile/TileLayer.Canvas.js ^
 --js ../src/layer/ImageOverlay.js ^
 --js ../src/layer/AgsDynamicLayer.js ^
+--js ../src/layer/AgsFeatureLayer.js ^
+--js ../src/layer/BingTileLayer.js ^
 --js ../src/layer/Popup.js ^
 --js ../src/layer/marker/Icon.js ^
 --js ../src/layer/marker/Marker.js ^

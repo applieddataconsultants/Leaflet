@@ -80,6 +80,22 @@ var deps = {
 		desc: 'Extends LayerGroup with mouse events and bindPopup method shared between layers.'
 	},
 	
+	AgsDynamicLayer: {
+		src: ['layer/AgsDynamicLayer.js'],
+		desc: 'An ArcGIS Server dynamic layer.'
+	},
+	
+	AgsFeatureLayer: {
+		src: ['layer/AgsFeatureLayer.js'],
+		deps: ['FeatureGroup'],
+		desc: 'Extends FeatureGroup to display ArcGIS features.'
+	},
+	
+	BingTileLayer: {
+		src: ['layer/BingTileLayer.js'],
+		deps: ['TileLayer'],
+		desc: 'Extends TileLayer to display Bing basemaps.'
+	},
 	
 	Path: {
 		src: ['layer/vector/Path.js', 'layer/vector/Path.Popup.js'],
