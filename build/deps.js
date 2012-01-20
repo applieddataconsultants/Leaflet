@@ -40,7 +40,11 @@ var deps = {
 		desc: 'WMS tile layer.',
 		deps: ['TileLayer']
 	},
-
+	TileLayerAGSDynamic: {
+		src: ['layer/tile/TileLayer.AGSDynamic.js'],
+		desc: 'ArcGIS Server Dynamic tile layer.',
+		deps: ['TileLayer']
+	},
 	TileLayerCanvas: {
 		src: ['layer/tile/TileLayer.Canvas.js'],
 		desc: 'Tile layer made from canvases (for custom drawing purposes).',
@@ -73,8 +77,22 @@ var deps = {
 		deps: ['LayerGroup', 'Popup'],
 		desc: 'Extends LayerGroup with mouse events and bindPopup method shared between layers.'
 	},
-
-
+	AgsDynamicLayer: {
+		src: ['layer/AgsDynamicLayer.js'],
+		desc: 'An ArcGIS Server dynamic layer.'
+	},
+	
+	AgsFeatureLayer: {
+		src: ['layer/AgsFeatureLayer.js'],
+		deps: ['FeatureGroup'],
+		desc: 'Extends FeatureGroup to display ArcGIS features.'
+	},
+	
+	BingTileLayer: {
+		src: ['layer/BingTileLayer.js'],
+		deps: ['TileLayer'],
+		desc: 'Extends TileLayer to display Bing basemaps.'
+	},
 	Path: {
 		src: ['layer/vector/Path.js', 'layer/vector/Path.SVG.js', 'layer/vector/Path.Popup.js'],
 		desc: 'Vector rendering core (SVG-powered), enables overlaying the map with SVG paths.',
