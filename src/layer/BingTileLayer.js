@@ -1,5 +1,3 @@
-﻿//https://gist.github.com/1221998
-
 L.TileLayer.Bing = L.TileLayer.extend({
     supportedTypes: ['Road', 'Aerial', 'AerialWithLabels'],
 
@@ -65,19 +63,19 @@ L.TileLayer.Bing = L.TileLayer.extend({
 
     getTileUrl: function (xy, z) {
         var subdomains = this.options.subdomains,
-			  quadDigits = [],
-			  i = z,
-			  digit,
-			  mask,
-			  quadKey;
+            quadDigits = [],
+			i = z,
+			digit,
+			mask,
+			quadKey;
         // borrowed directly from OpenLayers
         for (; i > 0; --i) {
             digit = '0';
             mask = 1 << (i - 1);
-            if ((xy.x & mask) != 0) {
+            if ((xy.x & mask) !== 0) {
                 digit++;
             }
-            if ((xy.y & mask) != 0) {
+            if ((xy.y & mask) !== 0) {
                 digit++;
                 digit++;
             }
@@ -123,15 +121,15 @@ L.TileLayer.Bing = L.TileLayer.extend({
 L.TileLayer.Bing._callbackId = 0;
 
 L.TileLayer.Bing.processMetadata = function (metadata) {
-    if (metadata.authenticationResultCode != 'ValidCredentials') {
-        throw "Invalid Bing Maps API Key"
+    if (metadata.authenticationResultCode !== 'ValidCredentials') {
+        throw "Invalid Bing Maps API Key";
     }
 
     if (!metadata.resourceSets.length || !metadata.resourceSets[0].resources.length) {
         throw "No resources returned, perhaps " + this._mapType + " is an invalid map type?";
     }
 
-    if (metadata.statusCode != 200) {
+    if (metadata.statusCode !== 200) {
         throw "Bing Maps API request failed with status code " + metadata.statusCode;
     }
 
@@ -158,4 +156,4 @@ L.TileLayer.Bing.processMetadata = function (metadata) {
     window[this._callbackId] = undefined; // cannot delete from window in IE
     delete this._callbackId;
     this._onMetadataLoaded();
-}
+};

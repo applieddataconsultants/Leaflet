@@ -8,10 +8,10 @@ L.TileLayer.AGSDynamic = L.TileLayer.extend({
         format: 'PNG8',
         transparent: 'true',
         defintionQuery: '',
-		cacheBuster:false
+		cacheBuster: false
 	},
 
-	initialize: function(/*String*/ url, /*Object*/ options) {
+	initialize: function (/*String*/ url, /*Object*/ options) {
 		this._url = url;
 		
 		this.agsDynamicParams = L.Util.extend({}, this.defaultAgsParams);
@@ -27,11 +27,11 @@ L.TileLayer.AGSDynamic = L.TileLayer.extend({
 		L.Util.setOptions(this, options);
 	},
 	
-	onAdd: function(map) {
+	onAdd: function (map) {
 		L.TileLayer.prototype.onAdd.call(this, map);
 	},
 	
-	getTileUrl: function(/*Point*/ tilePoint, /*Number*/ zoom)/*-> String*/ {
+	getTileUrl: function (/*Point*/ tilePoint, /*Number*/ zoom)/*-> String*/ {
 		var tileSize = this.options.tileSize,
 			nwPoint = tilePoint.multiplyBy(tileSize),
 			sePoint = nwPoint.add(new L.Point(tileSize, tileSize)),
@@ -49,10 +49,10 @@ L.TileLayer.AGSDynamic = L.TileLayer.extend({
             var layers = '&layers=' + this.agsDynamicParams.layers;
             url += layers;
         }
-		if(this.agsDynamicParams.cacheBuster === true){
-			url += '&rnd=' + Math.random()*10000000000000000;
+		if (this.agsDynamicParams.cacheBuster === true) {
+			url += '&rnd=' + Math.random() * 10000000000000000;
 		}
 
-        return url;		
+        return url;
 	}
 });
