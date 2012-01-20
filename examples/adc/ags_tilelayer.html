@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet debug page</title>
+
+	<link rel="stylesheet" href="../../dist/leaflet.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="../../dist/leaflet.ie.css" /><![endif]-->
+	<link rel="stylesheet" href="../../css/screen.css" />
+	<script src="../../debug/leaflet-include.js"></script>
+	
+</head>
+<body>
+
+	<div id="map" style="width: 800px; height: 600px; border: 1px solid #ccc"></div>
+
+	<script type="text/javascript">
+	
+	    var latlng = new L.LatLng(90, -45);
+
+        var streetMapUrl = 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}';
+        var streetMapLayer = new L.TileLayer(streetMapUrl, { maxZoom: 19, attribution: 'Tiles: &copy; Esri' });
+
+		var map = new L.Map('map', {center: latlng, zoom: 15, layers: [streetMapLayer]});
+
+        
+	</script>
+</body>
+</html>

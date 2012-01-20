@@ -11,7 +11,7 @@ exports.config = {
 
 	"asi": false,
 	"laxbreak": false,
-	"bitwise": true,
+	"bitwise": false,
 	"boss": false,
 	"curly": true,
 	"eqnull": false,

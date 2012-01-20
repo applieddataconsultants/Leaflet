@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet debug page</title>
+
+	<link rel="stylesheet" href="../../dist/leaflet.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="../../dist/leaflet.ie.css" /><![endif]-->
+	<link rel="stylesheet" href="../../debug/css/screen.css" />
+	<script src="../../dist/leaflet.js"></script>
+	
+</head>
+<body>
+
+	<div id="map" style="width: 800px; height: 600px; border: 1px solid #ccc"></div>
+	<script type="text/javascript">
+	
+		var cloudmadeOptions = {maxZoom: 18},
+			cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/{styleId}/256/{z}/{x}/{y}.png';
+			
+        //look up styles at http://maps.cloudmade.com/            
+		var minimal = new L.TileLayer(cloudmadeUrl, cloudmadeOptions, {styleId: 999});
+		var map = new L.Map('map', {center: new L.LatLng(45, -90), zoom: 6, layers: [minimal]});
+	</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+
+<html><head><title>Mapping-Online.com Leaflet map</title>
+
+    <link rel="stylesheet" href="../../dist/leaflet.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="../../dist/leaflet.ie.css" /><![endif]-->
+	<link rel="stylesheet" href="../../css/screen.css" />
+	<script src="../../dist/leaflet.js"></script>
+	<script src="wgx_counties.js"></script>
+
+    <script type="text/javascript">
+      function init(){
+
+        var myMap = new L.Map('map');
+        myMap.setView(new L.LatLng(45, -90), 7);
+        
+        var popup = new L.Popup({closeButton: false});
+
+        // Add empty geojson layer
+        var geojsonLayer = new L.GeoJSON();
+
+        // Listen to events: popup, click and set style. Do this before we add any features to it
+        geojsonLayer.on("featureparse", function (e) {
+
+          if (e.properties && e.properties.url) {
+            e.layer.on('click', function(ee){
+              window.open(e.properties.url);
+            });
+          }
+
+          //logic for styling based on attributes in json
+          if (e.properties && e.properties.status && e.layer.setStyle){
+            var color = "#DDDDDD";
+            var t = e.properties.status;
+            var colormap = {
+              "wgx":"#000080",
+              "wgx-upgrade":"#768DFF",
+              "wg3":"#D8D8FF",
+              "pgx":"#008000",
+              "pgx-upgrade":"#84D884",
+              "pg":"#C6F6C6"};
+      
+            color = colormap[t] || color;
+            e.layer.setStyle({"color":"#FFFFFF","weight": 1,"opacity": 1,"fillOpacity":1,"fillColor":color});
+          }else{ //default
+            e.layer.setStyle({"color":"#DDDDDD","weight": 1,"opacity": 1 });
+          }
+        }); //end featureparse
+
+        // Now Push into geojson layer each feature
+        geojsonLayer.addGeoJSON(wgx_counties);
+        myMap.addLayer(geojsonLayer);
+      }
+    </script>
+    <style>
+        .leaflet-container {
+            background: none repeat scroll 0 0 #FFFFFF;
+        }
+        .leaflet-clickable:hover {
+            opacity: 0.75;
+            fill: #cc0000;
+        }
+    </style>
+
+  </head>
+  <body onload="init();">
+
+    <div id="map" style="height: 90%;"></div>
+    <div id="info" class="info"></div>
+
+  </body>
+</html>

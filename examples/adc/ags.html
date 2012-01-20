@@ -1,0 +1,31 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet debug page</title>
+
+	<link rel="stylesheet" href="../../dist/leaflet.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="../../dist/leaflet.ie.css" /><![endif]-->
+	<link rel="stylesheet" href="../../debug/css/screen.css" />
+	<script src="../../debug/leaflet-include.js"></script>
+	
+</head>
+<body>
+
+	<div id="map" style="width: 800px; height: 600px; border: 1px solid #ccc"></div>
+
+	<script type="text/javascript">
+	
+	    var latlng = new L.LatLng(90, -45);
+		var ags = new L.AgsDynamicLayer("http://ec-gissrv1/ArcGIS/rest/services/Statewide/wgx_wi_parcels/MapServer", {
+			maxZoom: 19, 
+			attribution: "WI_counties", 
+			opacity: 1, 
+			layers: '16'
+		});
+		var map = new L.Map('map', {crs: L.CRS.EPSG4326,center: latlng, zoom: 15, layers: [ags]});
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet debug page</title>
+
+	<link rel="stylesheet" href="../../dist/leaflet.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="../../dist/leaflet.ie.css" /><![endif]-->
+	<link rel="stylesheet" href="../../debug/css/screen.css" />
+	<script src="../../dist/leaflet.js"></script>
+	
+</head>
+<body>
+
+	<div id="map" style="width: 800px; height: 600px; border: 1px solid #ccc"></div>
+	<script type="text/javascript">
+
+			
+        var binglayer = new L.TileLayer.Bing(
+                    "AiIglJm4-4gaQRNQ6bwhAfn9E4Km5OxPzoHPrB3KjqUpv3eJcbOePSMJiBKXY1MQ", 
+                    //"api key", 
+                    "Road"); //Aerial|Road|AerialWithLabels
+		var map = new L.Map('map', {center: new L.LatLng(45, -90), zoom: 6, layers: [ binglayer]});
+
+	</script>
+</body>
+</html>

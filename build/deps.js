@@ -78,7 +78,8 @@ var deps = {
 		desc: 'Extends LayerGroup with mouse events and bindPopup method shared between layers.'
 	},
 	
-	/*AgsDynamicLayer: {
+	/*
+	AgsDynamicLayer: {
 		src: ['layer/AgsDynamicLayer.js'],
 		desc: 'An ArcGIS Server dynamic layer.'
 	},
@@ -88,13 +89,13 @@ var deps = {
 		deps: ['FeatureGroup'],
 		desc: 'Extends FeatureGroup to display ArcGIS features.'
 	},
-	
+	*/
 	BingTileLayer: {
 		src: ['layer/BingTileLayer.js'],
 		deps: ['TileLayer'],
 		desc: 'Extends TileLayer to display Bing basemaps.'
 	},
-	*/
+	
 	Path: {
 		src: ['layer/vector/Path.js', 'layer/vector/Path.SVG.js', 'layer/vector/Path.Popup.js'],
 		desc: 'Vector rendering core (SVG-powered), enables overlaying the map with SVG paths.',

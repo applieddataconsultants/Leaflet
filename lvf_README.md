@@ -16,3 +16,5 @@ npm install jshint
 npm install uglify-js
 jake 
 # errors in AGS layers from dtsagile
+# cleaned up some. commented bad files out in /build/deps.js
+# set jshint "bitwise": false

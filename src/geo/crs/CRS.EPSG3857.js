@@ -15,3 +15,7 @@ L.CRS.EPSG3857 = L.Util.extend({}, L.CRS, {
 L.CRS.EPSG900913 = L.Util.extend({}, L.CRS.EPSG3857, {
 	code: 'EPSG:900913'
 });
+
+L.CRS.EPSG102100 = L.Util.extend({}, L.CRS.EPSG3857, {
+	code: 'EPSG:102100'
+});
