@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet debug page</title>
+
+	<link rel="stylesheet" href="../../dist/leaflet.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="../../dist/leaflet.ie.css" /><![endif]-->
+	<link rel="stylesheet" href="../../css/screen.css" />
+	<script src="../../dist/leaflet.js"></script>
+
+	
+</head>
+<body>
+	<div id="map" style="width: 800px; height: 600px; border: 1px solid #ccc"></div>
+	<script type="text/javascript">
+	    var latlng = new L.LatLng(40,-104);
+        var streetMapUrl = 'http://sandbox2.adceval.com/coe_caching/900913/naip_adams_co_2009/{z}/{x}/{y}.jpg';
+        var streetMapLayer = new L.TileLayer(streetMapUrl, { 
+            maxZoom: 15, 
+            scheme: 'tms',
+            opacity: 0.7
+        });
+		
+		var cloudmadeOptions = {maxZoom: 18},
+			cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/{styleId}/256/{z}/{x}/{y}.png';
+			
+        //look up styles at http://maps.cloudmade.com/            
+		var minimal = new L.TileLayer(cloudmadeUrl, cloudmadeOptions, {styleId: 997});
+		var map = new L.Map('map', {center: latlng, zoom: 8});
+        map.addLayer(minimal);
+        map.addLayer(streetMapLayer);
+	</script>
+</body>
+</html>
